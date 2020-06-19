@@ -1,14 +1,3 @@
-html {
-  font-family: 'Numans', sans-serif;
-}
-
-body {
-  background-image: url('home_page.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-
 .navbar {
   background: #1D3557;
 }
