@@ -10,30 +10,25 @@ jQuery(function($) {
   $pgn = $('#pgn')
 
   var config = {
-    // orientation: 'black',
-    // position: 'start',
-    // draggable: true,
-    // moveSpeed: 'slow',
-    // snapbackSpeed: 500,
-    // snapSpeed: 100,
-    // onDragStart: onDragStart,
-    // onDrop: onDrop,
-    // onSnapEnd: onSnapEnd
+    position: 'start',
+    draggable: true,
+    moveSpeed: 'slow',
+    snapbackSpeed: 500,
+    snapSpeed: 100,
+    onDragStart: onDragStart,
+    onDrop: onDrop,
+    onSnapEnd: onSnapEnd
   }
   board = Chessboard('board', config);
   $(window).resize(board.resize);
-  window.setTimeout(makeRandomMove, 500);
 });
 
 function onDragStart(source, piece, position, orientation) {
   // do not pick up pieces if the game is over
   if (game.game_over()) return false
 
-  // only pick up pieces for the side to move
-  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-    (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-    return false
-  }
+  // only pick up pieces for White
+  if (piece.search(/^b/) !== -1) return false
 }
 
 function onDrop(source, target) {
@@ -46,8 +41,10 @@ function onDrop(source, target) {
 
   // illegal move
   if (move === null) return 'snapback'
-
   updateStatus()
+
+  // make random legal move for black
+  window.setTimeout(makeRandomMove, 250)
 }
 
 // update the board position after the piece snap
@@ -92,13 +89,11 @@ function updateStatus() {
 function makeRandomMove() {
   var possibleMoves = game.moves()
 
-  // exit if the game is over
-  if (game.game_over()) return
+  // game over
+  if (possibleMoves.length === 0) return
 
   var randomIdx = Math.floor(Math.random() * possibleMoves.length)
   game.move(possibleMoves[randomIdx])
   board.position(game.fen())
   updateStatus()
-
-  window.setTimeout(makeRandomMove, 500)
 }
