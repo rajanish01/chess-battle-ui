@@ -1,0 +1,74 @@
+.navbar {
+  background: #1D3557;
+}
+
+.aclonica_font {
+  font-family: 'Aclonica';
+  color: white;
+}
+
+.container {
+  margin-top: 2%;
+}
+
+#board {
+  width: 50%;
+}
+
+.game-menu {
+  background: transparent;
+}
+
+.new_game_configuration_header {
+  background: #1D3557;
+  color: white;
+  text-align: center;
+  padding: 0px !important;
+  font-family: 'Adamina';
+  border-radius: 5px;
+}
+
+.new_game_configuration {
+  background: #A8DADC;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+.menu-text {
+  font-family: 'Adamina';
+  font-weight: bold;
+}
+
+.menu-text-strong {
+  font-family: 'Aclonica';
+}
+
+.status_panel {
+  margin-top: 5px;
+}
+
+.status_panel_header {
+  background: #1D3557;
+  font-family: 'Adamina';
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+
+.boxy_left {
+  background: #457B9D;
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: 'Aclonica';
+}
+
+.boxy_right {
+  background: #F1FAEE;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: 'Adamina';
+}

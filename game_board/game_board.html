@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+  <link rel="stylesheet" href="css/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="css/game_board.css">
+  <link rel="stylesheet" href="../resources/css/background_body.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/chessboard-1.0.0.min.js"></script>
+  <script type="text/javascript" src="js/chess.js"></script>
+  <script type="text/javascript" src="js/game_board.js"></script>
+  <title></title>
+</head>
+
+<body>
+  <nav class="navbar navar-fixed navbar-expand-lg">
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">
+        <img src="../resources/images/logo.png" width="35" height="35" class="d-inline-block" alt="logo" loading="lazy">
+        <span class="logo_text aclonica_font">Chess Battle</span>
+      </a>
+    </nav>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 game-menu">
+        <div class="row">
+          <div class="new_game_configuration_header col-md-12">
+            <strong>New Game Configuration</strong>
+          </div>
+
+          <div class="new_game_configuration col-md-12">
+            <div class="row">
+              <div class="col-md-5 menu-text-strong">
+                <label for="game_type">Game Type :</label>
+              </div>
+              <div class="col-md-7">
+                <form class="">
+                  <div class="form-check">
+                    <input class="form-check-input" id="blitz" type="radio" name="game_type" value="blitz" checked>
+                    <label class="form-check-label menu-text" for="blitz">Blitz (5 Min)</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" id="standard" type="radio" name="game_type" value="standard">
+                    <label class="form-check-label menu-text" for="standard">Standard (15 Min)</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" id="untimed" type="radio" name="game_type" value="untimed">
+                    <label class="form-check-label menu-text" for="untimed">Untimed</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" id="lightening" type="radio" name="game_type" value="lightening">
+                    <label class="form-check-label menu-text" for="lightening">Lightening (2 Min)</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <hr>
+            <div class="row">
+              <div class="col-md-5 menu-text-strong">
+                <label for="play_as">Play As :</label>
+              </div>
+              <div class="col-md-7">
+                <form class="">
+                  <div class="form-check">
+                    <input class="form-check-input" id="piece_black" type="radio" name="play_as" value="black" checked>
+                    <label class="form-check-label menu-text" for="piece_type">Black</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" id="piece_white" type="radio" name="play_as" value="white">
+                    <label class="form-check-label menu-text" for="piece_type">White</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <hr>
+            <div class="row">
+              <div class="col-md-5 menu-text-strong">
+                <label for="play_against">Play Against :</label>
+              </div>
+              <div class="col-md-7">
+                <form class="">
+                  <div class="form-check">
+                    <input class="form-check-input" id="opponent_computer" type="radio" name="play_against" value="computer" checked>
+                    <label class="form-check-label menu-text" for="opponent_computer">Computer</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" id="opponent_human" type="radio" name="play_against" value="human">
+                    <label class="form-check-label menu-text" for="opponent_human">Human</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <hr>
+            <div class="col text-center">
+              <button class="btn btn-success" style="margin-bottom:8px;" type="button" name="button">Start New Game</button>
+            </div>
+          </div>
+        </div>
+        <div class="status_panel row">
+          <div class="col-md-12 text-center status_panel_header">
+            <strong>Game Status</strong>
+          </div>
+          <div class="col-md-4 boxy_left">
+            STATUS
+          </div>
+          <div class="col-md-8 boxy_right" id="status" style="color:#E63946;">
+            White to Move !
+          </div>
+
+          <div class="col-md-4 boxy_left">
+            FEN
+          </div>
+          <div class="col-md-8 boxy_right" id="fen">
+          </div>
+
+          <div class="col-md-4 boxy_left">
+            PGN
+          </div>
+          <div class="col-md-8 boxy_right" id="pgn" style="height:200px;overflow-y: scroll;">
+          </div>
+        </div>
+      </div>
+      <div id="board" class="col-md-8"></div>
+    </div>
+
+  </div>
+</body>
+
+</html>
