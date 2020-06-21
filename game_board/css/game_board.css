@@ -13,6 +13,10 @@
 
 #board {
   width: 50%;
+  border-style: ridge;
+  border-width: 15px;
+  padding: 0px !important;
+  border-color: #C19A6B;
 }
 
 .game-menu {
